@@ -1,20 +1,19 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\Tag;
+use App\Http\Requests\StoreTagRequest;
+use App\Http\Requests\UpdateTagRequest;
 
-class ArticleContller extends Controller
+class TagController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $users = Artic::paginate(5);
-
-        return view('dashboard.users.index', compact('users'));
+        //
     }
 
     /**
@@ -28,7 +27,7 @@ class ArticleContller extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreTagRequest $request)
     {
         //
     }
@@ -36,7 +35,7 @@ class ArticleContller extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Tag $tag)
     {
         //
     }
@@ -44,7 +43,7 @@ class ArticleContller extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Tag $tag)
     {
         //
     }
@@ -52,7 +51,7 @@ class ArticleContller extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateTagRequest $request, Tag $tag)
     {
         //
     }
@@ -60,7 +59,7 @@ class ArticleContller extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Tag $tag)
     {
         //
     }
