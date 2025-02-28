@@ -1,0 +1,33 @@
+<?php
+
+return [
+
+    "dashboard"         => "لوحة التحكم",
+    "add_new"           => "إضافة جديد",
+    "list_all"          => "عرض الكل",
+    "users_and_roles"   => "المستخدمين والصلاحيات",
+    "users"             => "المستخدمين",
+    "add_user"          => "إضافة مستخدم",
+    "edit_user"         => "تعديل مستخدم",
+    "add_role"          => "إضافة صلاحية",
+    "articles"          => "المقالات",
+    "add_article"       => "إضافة مقالة",
+    "edit_article"      => "تعديل مقالة",
+    "roles"             => "مجموعات الصلاحيات",
+    "orders"            => "الطلبات",
+    'title'             => 'العنوان',
+    "order_histories"   => "تاريخ الطلبات",
+    "order-historys"    => "تاريخ الطلب",
+    "order_products"    => " المنتجات المطلوبة",
+    "order_product"     => "طلب منتج",
+    "order_status"      => "حالة الطلبات",
+    "order"             => "طلب",
+    "warehouses"        => "المستودعات",
+    "warehouse"         => "مستودع",
+    "enter_title"       => "ادخل العنوان",
+    "addresss"          => 'العناوين',
+    "yes"               => "نعم",
+    "no"                => "لا",
+    "commercial"        => "تجاري",
+    "personal"          => "شخصي",
+];
