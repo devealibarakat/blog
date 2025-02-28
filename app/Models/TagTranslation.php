@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Midecal extends Model
+class TagTranslation extends Model
 {
     use HasFactory;
 
-    public $fillable = [
-        'id',
-        'pdf',
-        'patent_id',
-    ];
+    public $fillable  = ['name'];
+
+    public $table = 'tag_translation';
+
+    public $timestamps = false;
 }
