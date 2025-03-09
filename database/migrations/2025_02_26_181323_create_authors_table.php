@@ -14,8 +14,7 @@ return new class extends Migration
         Schema::create('authors', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('job')->nullable();
-            $table->string('meta_descreption')->nullable();
+            $table->string('meta_description')->nullable();
             $table->timestamps();
         });
     }

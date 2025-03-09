@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use App\Filament\Traits\InputsTrait;
-use Filament\Forms\Components\Section;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Image\Manipulations;
@@ -13,7 +11,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Author extends Model implements HasMedia
 {
-    use HasFactory, InputsTrait, InteractsWithMedia;
+    use HasFactory, InteractsWithMedia;
 
     /**
      * The attributes that are mass assignable.
@@ -22,7 +20,7 @@ class Author extends Model implements HasMedia
      */
     protected $fillable = [
         'name',
-        'meta_descreption',
+        'meta_description',
     ];
 
     /**
