@@ -6,15 +6,20 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $users = User::paginate(5);
+
+        if ($request->ajax()) {
+            return view('dashboard.users.data', compact('users'));
+        }
 
         return view('dashboard.users.index', compact('users'));
     }
@@ -30,7 +35,6 @@ class UserController extends Controller
      */
     public function create()
     {
-
         return view('dashboard.users.form');
     }
 
@@ -48,6 +52,7 @@ class UserController extends Controller
                 'roles' => $request->roles,
             ]
         );
+
         return redirect(route('users.index'));
     }
 
@@ -65,13 +70,11 @@ class UserController extends Controller
     public function update(UserRequest $request, User $user)
     {
 
-
         $user->update([
             'name' => $request->name,
             'email' => $request->email,
             'password' => $request->password ? Hash::make($request->password) : $user->password,
         ]);
-
 
         return redirect(route('users.index'))->with('success', 'تم تحديث المستخدم بنجاح.');
     }
@@ -82,9 +85,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-
         $user->delete();
-
 
         return redirect()->route('users.index')->with('success', 'تم حذف المستخدم بنجاح.');
     }
