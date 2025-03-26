@@ -17,6 +17,9 @@ class TagsController extends Controller
     {
         $tags = Tag::with('translations')->paginate(5);
 
+        if ($request->ajax()) {
+            return view('dashboard.tags.data', compact('tags'));
+        }
         return view('dashboard.tags.index', compact('tags'));
     }
 
@@ -66,7 +69,7 @@ class TagsController extends Controller
      */
     public function destroy(Tag $tag)
     {
-        $tag->delete();
+        $tag->findOrFail($tag->id)->delete();
 
         return redirect(route('tags.index'));
     }
