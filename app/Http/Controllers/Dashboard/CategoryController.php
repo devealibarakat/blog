@@ -5,17 +5,22 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
-use App\Http\Requests\StoreCategoryRequest;
-use App\Http\Requests\UpdateCategoryRequest;
+use Illuminate\Http\Request;
+
 
 class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $categories = Category::paginate(5);
+
+        if ($request->ajax()) {
+            return view('dashboard.categories.data', compact('categories'));
+        }
+        
         return view('dashboard.categories.index', compact('categories'));
     }
 
