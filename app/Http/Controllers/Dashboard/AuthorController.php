@@ -11,10 +11,13 @@ class AuthorController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $authors = Author::paginate(5);
 
+        if ($request->ajax()) {
+            return view('dashboard.authors.data', compact('authors'));
+        }
         return view('dashboard.authors.index', compact('authors'));
     }
 
@@ -35,6 +38,7 @@ class AuthorController extends Controller
             'name' => $request->name,
             'meta_descreption' => $request->meta_descreption,
         ]);
+
         return redirect(route('authors.index'));
     }
 
@@ -55,6 +59,7 @@ class AuthorController extends Controller
             'name' => $request->name,
             'meta_descreption' => $request->meta_descreption,
         ]);
+
         return redirect(route('authors.index'));
     }
 
@@ -64,7 +69,7 @@ class AuthorController extends Controller
     public function destroy(Author $author)
     {
         $author->delete();
-        
+
         return redirect(route('authors.index'));
     }
 }
