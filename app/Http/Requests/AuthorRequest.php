@@ -22,7 +22,11 @@ class AuthorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+
+
+            'name' => 'required:register|string|between:2,100',
+
+
         ];
     }
 }
