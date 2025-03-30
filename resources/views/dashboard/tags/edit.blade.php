@@ -10,7 +10,7 @@
             <div class="m-3 pb-3">
                 <h3>{{__('string.edit_tag')}}</h3>
             </div>
-            <form action="{{ route('tags.update', $tag->id) }}" method="POST">
+            <form action="{{ route('tags.update', $tag) }}" method="POST">
                 @method('PUT')
                 @csrf
                 <ul class="nav nav-tabs" id="langTabs">
@@ -33,7 +33,7 @@
                                     ({{ $properties['native'] }})</label>
 
                                 <input type="text" class="form-control" name="name[{{ $locale }}]" id="name{{ $locale }}"
-                                    value="{{ $tag->name }}"
+                                    value="{{ $tag->translate($locale)->name }}"
                                     placeholder="{{__('inputs.title.placeholder') }} ({{ $properties['native'] }})">
 
                                 @error("name.$locale") <span class="text-danger">{{ $message }}</span> @enderror
