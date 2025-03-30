@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\Dashboard\ArticleContller;
-use App\Http\Controllers\Dashboard\UserController;
+use App\Http\Controllers\Dashboard\{CategoryController, ArticleController, AuthorController, TagsController, UserController};
+use App\Http\Controllers\WebsiteController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -16,17 +16,25 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.index');
-})->name('dashboard.index');
 
-Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
-    Route::group(['prefix' => '/dashboard'], function () {
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale()
+    ],
+    function () {
+        Route::group(['prefix' => 'dashboard'], function () {
+            Route::get('/', function () {
+                return view('dashboard.layouts.index');
+            })->name('dashboard.index');
 
-        Route::get('/', function () {
-            return view('dashboard.layouts.master');
-        })->name('dashboard.index');
-        Route::resource('users', UserController::class)->except('show');
-        Route::resource('articles', ArticleContller::class);
-    });
-});
+            Route::resource('users', UserController::class);
+            Route::resource('authors', AuthorController::class);
+            Route::get('articles/check_slug', [ArticleController::class, 'checkSlug'])->name('articles.checkSlug');
+            Route::resource('articles', ArticleController::class);
+            Route::resource('tags', TagsController::class)->except('show');
+            Route::resource('categories', CategoryController::class);
+        });
+        Route::get('/', [WebsiteController::class, 'index']);
+        Route::get('/article/{slug}', [WebsiteController::class, 'show'])->name('show');
+    }
+);
