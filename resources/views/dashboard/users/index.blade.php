@@ -12,8 +12,8 @@
             </h1>
         </div>
         <div>
-            <a class="btn btn-sm btn-dark" href="{{route('articles.create')}}">
-                {{__('sidebar.add_article')}}
+            <a class="btn btn-sm btn-dark" href="{{route('users.create')}}">
+                {{__('sidebar.add_user')}}
             </a>
         </div>
     </div>
@@ -25,105 +25,16 @@
 
                 <h4 class="m-3 mb-md-0">{{__('string.users_menu')}}</h4>
 
-                <input class="input m-3" data-datatable-search="#users" placeholder="{{ __('string.search') }}"
+                <input class="input m-3" data-datatable-search="#table_data" placeholder="{{ __('string.search') }}"
                     type="text" />
             </div>
-
-            <!-- محتوى الجدول -->
             <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-striped table-row-bordered gy-5 gs-7" id="users">
-                        <thead>
-                            <tr class="fw-semibold fs-6 text-gray-800 text-center">
-                                <th class="min-w-200px">#</th>
-                                <th class="min-w-200px">{{ __('inputs.name.label') }}</th>
-                                <th class="min-w-150px">{{ __('inputs.email.label') }}</th>
-                                <th class="min-w-150px">{{ __('string.date') }}</th>
-                                <th class="min-w-100px">{{ __('string.edit') }}</th>
-                                <th class="min-w-100px">{{ __('string.delete') }}</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($users as $user)
-                                <tr>
-                                    <td>
-                                        <div class="d-flex flex-column gap-1 text-center">
-                                            <h3 class="m-0 font-medium text-sm text-gray-600">{{$user->id}}</h3>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex flex-column gap-1 ">
-                                            <h3 class="m-0 font-medium text-sm text-gray-600">{{$user->name}}</h3>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex flex-column gap-1">
-                                            <span class="m-0 font-medium text-sm">{{$user->email}}</h3>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex flex-column gap-1">
-                                            <h3 class="m-0 font-medium text-sm">
-                                                <span>{{\Carbon\Carbon::parse($user?->created_at)->format('d.m.Y')}}</span>
+                <div class="table-responsive" id="table_data">
 
-                                            </h3>
-                                        </div>
-                                    </td>
-                                    <td class="text-center">
-                                        <a class="btn btn-sm btn-icon btn-clear btn-light"
-                                            href="{{route('users.edit', $user->id)}}">
-                                            <i class="ki-duotone ki-notepad-edit fs-3">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                            </i>
-                                        </a>
-                                    </td>
-                                    <td class="text-center">
-                                        <a class="btn btn-sm btn-icon btn-clear btn-light" data-bs-toggle="modal"
-                                            data-bs-target="#delete_user">
-                                            <i class="ki-duotone ki-trash fs-5">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                                <span class="path3"></span>
-                                                <span class="path4"></span>
-                                                <span class="path5"></span>
-                                            </i>
-                                        </a>
+                    @include('dashboard.users.data')
 
-                                    </td>
-                                </tr>
-                            @endforeach
-                            @include('dashboard.users.destroy')
-                        </tbody>
-
-                    </table>
-                    <div
-                        class="card-footer d-flex flex-md-row justify-content-between align-items-center  text-gray-600 text-sm font-medium">
-
-                        <div>
-                            {{ trans('string.show') }}
-                            <select class="select select-sm w-16" name="perpage">
-                                <option value="5">5</option>
-                                <option value="10">10</option>
-                                <option value="20">20</option>
-                                <option value="50">50</option>
-                            </select>
-                            {{ trans('string.per_page') }}
-                        </div>
-
-                        <div class="d-flex align-items-center">
-                            <nav>
-                                <ul class="pagination pagination-sm">
-                                    {{$users->links() }}
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-
-
 @endsection
