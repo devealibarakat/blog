@@ -33,7 +33,7 @@
 
                                 <input type="text" class="form-control" name="name[{{ $locale }}]" id="name{{ $locale }}"
                                     value="{{ $category->name }}"
-                                    placeholder="{{__('inputs.title.placeholder') }} ({{ $properties['native'] }})">
+                                    placeholder="{{__('inputs.title.placeholder') }} ({{ $properties['native'] }})" required>
 
                                 @error("name.$locale") <span class="text-danger">{{ $message }}</span> @enderror
 
