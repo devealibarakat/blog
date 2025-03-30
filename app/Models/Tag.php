@@ -2,12 +2,8 @@
 
 namespace App\Models;
 
-use App\Filament\Traits\InputsTrait;
-use Filament\Forms\Components\Section;
-use Filament\Forms\Components\Tabs;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
 
@@ -20,7 +16,7 @@ class Tag extends Model implements TranslatableContract
      *
      * @var array
      */
-    public $fillable = [];
+    public $fillable  = [];
 
     public $translatedAttributes = ['name'];
     /**
@@ -34,6 +30,6 @@ class Tag extends Model implements TranslatableContract
 
     public function articals()
     {
-        return $this->belongsToMany(Article::class, 'artical_tag');
+        return $this->belongsToMany(Article::class, 'article_tag');
     }
 }
