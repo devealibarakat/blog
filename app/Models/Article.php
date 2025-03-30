@@ -2,13 +2,8 @@
 
 namespace App\Models;
 
-use Filament\Forms\Components\Section;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Filament\Traits\InputsTrait;
-use Filament\Forms\Components\Tabs;
-use Filament\Forms\Set;
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
 use Spatie\Image\Manipulations;
@@ -22,6 +17,7 @@ class Article extends Model implements TranslatableContract, HasMedia
 
 
     public $fillable = [
+        'id',
         'tag_id'
     ];
 
@@ -33,8 +29,8 @@ class Article extends Model implements TranslatableContract, HasMedia
     public $translatedAttributes = [
         'title',
         'slug',
-        'short_descreption',
-        'descreption',
+        'short_description',
+        'description',
         'meta_keywords',
     ];
 
@@ -42,7 +38,6 @@ class Article extends Model implements TranslatableContract, HasMedia
     protected $casts = [
         'id' => 'integer',
         'tag_id' => 'array'
-
     ];
 
     public function registerMediaConversions(Media $media = null): void
@@ -87,7 +82,6 @@ class Article extends Model implements TranslatableContract, HasMedia
     {
         return $this->belongsToMany(Tag::class, 'article_tag');
     }
-
     public function authors()
     {
         return $this->belongsToMany(Author::class, 'article_author', 'article_id', 'author_id');
