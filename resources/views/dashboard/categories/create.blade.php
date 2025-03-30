@@ -26,11 +26,15 @@
                 <div class="tab-content mt-3 row">
                     @foreach (LaravelLocalization::getSupportedLocales() as $locale => $properties)
                         <div class="tab-pane fade show {{ $loop->first ? 'active' : '' }}" id="{{ $locale }}">
+
                             <div class="m-5">
+
                                 <label for="title_{{ $locale }}" class="form-label">{{ __('inputs.title.label') }}
                                     ({{ $properties['native'] }})</label>
+
                                 <input type="text" class="form-control" name="name[{{ $locale }}]" id="name{{ $locale }}"
-                                    placeholder="{{__('inputs.title.placeholder') }} ({{ $properties['native'] }})">
+                                    placeholder="{{__('inputs.title.placeholder') }} ({{ $properties['native'] }})" required>
+
                                 @error("name.$locale") <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                         </div>
