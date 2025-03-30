@@ -1,4 +1,4 @@
-<div class="modal fade" tabindex="-1" id="delete_tag{{$tag->id}}">
+<div class="modal fade" tabindex="-1" id="delete_tag_{{$tag->id}}">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -16,8 +16,7 @@
                 <form action="{{ route('tags.destroy', $tag->id) }}" method="POST">
                     @csrf
                     @method('DELETE')
-                    <h3> {{__('string.confirm_delete')}}{{ $tag->id }} </h3>
-
+                    <h3>{{ __('string.confirm_delete :name', ['name' => $tag->id]) }}</h3>
             </div>
 
             <div class="modal-footer">
