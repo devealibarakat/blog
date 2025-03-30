@@ -4,16 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Support\Str;
 
 class ArticleTranslation extends Model
 {
-    use HasFactory;
+    use HasFactory, Sluggable;
     protected $fillable = [
-        'id',
         'title',
         'slug',
-        'short_descreption',
-        'descreption',
+        'short_description',
+        'description',
         'meta_keywords',
     ];
 
@@ -23,4 +24,15 @@ class ArticleTranslation extends Model
     protected $casts = [
         'meta_keywords' => 'array',
     ];
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'title',
+                'method' => function ($string, $separator) {
+                    return Str::slug($string, $separator, app()->getLocale() === 'ar' ? null : 'en');
+                },
+            ]
+        ];
+    }
 }
