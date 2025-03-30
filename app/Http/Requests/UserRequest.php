@@ -18,7 +18,7 @@ class UserRequest extends FormRequest
     {
         return [
             'name' => 'required:register|string|between:2,100',
-            'email' => 'required|string|email|max:100|unique:users,email,' . $this->route('user')->id,
+            'email' => 'required|string|email|max:100|unique:users,email,' . $this->user->id,
             'password' => 'required|string|min:6',
         ];
     }
