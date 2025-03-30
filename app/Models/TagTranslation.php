@@ -9,9 +9,9 @@ class TagTranslation extends Model
 {
     use HasFactory;
 
-    public $fillable  = ['name'];
-
-    public $table = 'tag_translation';
-
     public $timestamps = false;
+    protected $fillable = ['name'];
+    protected $casts = [
+        'name' => 'array',
+    ];
 }
