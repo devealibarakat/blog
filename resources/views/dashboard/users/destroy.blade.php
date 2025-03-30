@@ -13,10 +13,10 @@
             </div>
 
             <div class="modal-body">
-                <form action="{{ route('users.destroy', $user->id) }}" method="POST">
+                <form action="{{ route('users.destroy', $user) }}" method="POST">
                     @csrf
                     @method('DELETE')
-                    <h3> {{__('string.confirm_delete')}}{{ $user->name }} </h3>
+                    <h3>{{ __('string.confirm_delete', ['name' => $user->name]) }}</h3>
 
             </div>
 
