@@ -12,7 +12,7 @@
 
         <main class="flex-grow-1" role="content">
             <!-- Container -->
-            <form action="{{ route('users.update', ['user' => $user->id]) }}" method="POST">
+            <form action="{{ route('users.update', ['user' => $user]) }}" method="POST">
                 @method('PUT')
                 @csrf
                 <div class="container">
@@ -20,8 +20,14 @@
 
                         <div class="col-lg-10 mx-auto">
                             <div class="card">
-                                <div class="card-header">
-                                    <h3 class="card-title">{{ trans('sidebar.edit_user') }}</h3>
+                                <div class="d-flex align-items-center gap-1 m-4">
+                                    <a href="{{ route('users.index') }}" class="me-2">
+                                        <i class="ki-duotone ki-arrow-right m-3">
+                                            <span class="path1 text-black fs-2x"></span>
+                                            <span class="path2 text-black fs-2x"></span>
+                                        </i>
+                                    </a>
+                                    <h2 class="card-title mb-0">{{ trans('sidebar.edit_user') }}</h2>
                                 </div>
                                 <div class="card-body">
 
@@ -30,7 +36,9 @@
                                         'name' => 'name',
                                         'type' => 'text',
                                         'value' => old('name', $user->name),
-                                        'placeholder' => __('inputs.name.placeholder')
+                                        'placeholder' => __('inputs.name.placeholder'),
+                                        'required' => true,
+
                                     ])
 
                                     @include('components.form-input', [
@@ -38,18 +46,21 @@
                                         'name' => 'email',
                                         'type' => 'email',
                                         'value' => old('email', $user->email),
-                                        'placeholder' => __('inputs.email.placeholder')
+                                        'placeholder' => __('inputs.email.placeholder'),
+                                        'required' => true,
+
                                     ])
 
                                     @include('components.form-input', [
                                         'label' => trans('inputs.password.label'),
                                         'name' => 'password',
                                         'type' => 'password',
-                                        'value' => old('email', $user->password),
-                                        'placeholder' => __('inputs.password.placeholder')
+                                        'value' => old('password', $user->password),
+                                        'placeholder' => __('inputs.password.placeholder'),
+                                        'required' => true,
+
                                     ])
 
-                                    {{-- إذا كنت بحاجة إلى تحديد دور المستخدم --}}
                                     {{--
                                     @include('components.form-select', [
                                     'label' => trans('inputs.roles.label'),
