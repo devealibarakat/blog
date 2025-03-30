@@ -2,13 +2,13 @@
 
 return
     [
-        "email" => [
-            "label" => "البريد الالكتروني",
-            "placeholder" => " أدخل البريد الالكتروني",
-        ],
         "name" => [
             "label" => "الاسم",
             "placeholder" => " أدخل الاسم",
+        ],
+        "email" => [
+            "label" => "البريد الالكتروني",
+            "placeholder" => " أدخل البريد الالكتروني",
         ],
         "password" => [
             "label" => "كلمة المرور",
@@ -18,36 +18,32 @@ return
             "label" => "الصلاحيات",
             "placeholder" => "-- اختر --",
         ],
-        "save" => "حفظ",
-
         "gaurd" => [
             'label' => 'اسم الحارس',
             'placeholder' => 'أدخل اسم الحارس',
         ],
-        "descrption" => [
+        "title" => [
+            'label' => 'العنوان',
+            'placeholder' => 'أدخل العنوان',
+        ],
+        "short_description" => [
+            'label' => 'وصف قصير للمقال',
+            'placeholder' => 'اكتب وصف قصير عن المقال',
+        ],
+        "description" => [
             'label' => 'الوصف',
             'placeholder' => 'أدخل الوصف',
         ],
-        "status" => "الحالة",
-        "product_name" => [
-            'label' => 'اسم المنتج',
-            'placeholder' => 'أدخل اسم المنتج',
+        "meta_description" => [
+            'label' => 'الوصف',
+            'placeholder' => 'أدخل الوصف',
         ],
-        'total' => [
-            'label' => 'الاجمالي',
-            'placeholder' => 'أدخل الاجمالي',
+        "meta_keywords" => [
+            'label' => 'كلمات مفتاحية',
+            'placeholder' => 'أدخل كلمات مفتاحية',
         ],
-        "main_total" => [
-            'label' => 'المجموع الرئيسي',
-            'placeholder' => 'أدخل المجموع الرئيسي',
+        "slug" => [
+            'label' => 'رابط المقال',
         ],
-        'warehouse' => 'المستودع',
-
-        'last_status' => [
-            'label' =>  'الحالة الأخيرة',
-        ],
-        'quantity' => [
-            'label' => 'الكمية',
-            'placeholder' => 'أدخل الكمية المطلوبة',
-        ],
+        "save" => "حفظ",
     ];

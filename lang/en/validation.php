@@ -150,7 +150,18 @@ return [
         'name' => 'Name',
         'email' => 'Email Address',
         'password' => 'Password',
-
+        'name.en' => 'Title for english',
+        'name.ar' => 'Title for arabic',
+        'title.en' => 'Title for english',
+        'title.ar' => 'Title for arabic',
+        'short_description.ar' => 'Short Description for arabic',
+        'short_description.en' => 'Short description for english',
+        'description.ar' => 'description for arabic',
+        'description.en' => 'description for english',
+        'meta_keywords.ar' => 'Meta Keywords for arabic',
+        'meta_keywords.en' => 'Meta Keywords for english',
+        'tag_id' => 'Tags',
+        'meta_description' => 'Meta Description',
     ],
 
 ];

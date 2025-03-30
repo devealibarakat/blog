@@ -2,15 +2,14 @@
 
 return
     [
-        "email" => [
-            "label" => "E-mail",
-            "placeholder" => "Enter the email",
-        ],
         "name" => [
             "label" => "Name",
             "placeholder" => "Enter the name",
         ],
-
+        "email" => [
+            "label" => "E-mail",
+            "placeholder" => "Enter the email",
+        ],
         "password" => [
             "label" => "Password",
             "placeholder" => "Enter password",
@@ -19,35 +18,36 @@ return
             "label" => "Group",
             "placeholder" => "-- Choose a group --",
         ],
-        "save" => " Save",
         "gaurd" => [
             'label' => 'Gaurd',
             'placeholder' => 'Enter Gaurd Name',
         ],
-        "descrption" => [
-            'label' => 'Descrption',
-            'placeholder' => 'Enter Descrption',
-        ],
-        "status" => "Stattus",
 
-        "product_name" => [
-            'label' => 'Product Name',
-            'placeholder' => 'Enter Product Name',
+        "title" => [
+            'label' => 'Title',
+            'placeholder' => 'Enter Title',
         ],
-        'total' => [
-            'label' => 'Total',
-            'placeholder' => 'Enter Total',
+
+        "short_description" => [
+            'label' => 'Short Description',
+            'placeholder' => 'Write Short Description About Article',
         ],
-        "main_total" => [
-            'label' => 'Main Total',
-            'placeholder' => 'Enter Main Total',
+
+        "description" => [
+            'label' => 'Description',
+            'placeholder' => 'Enter Description',
         ],
-        'warehouse' => 'Warehouse',
-        'last_status' => [
-            'label' =>  'Last Status',
+
+        "meta_description" => [
+            'label' => 'Meta Description',
+            'placeholder' => 'Enter Meta Description',
         ],
-        'quantity' => [
-            'label' => 'Quantity',
-            'placeholder' => 'Enter Quantity',
+        "meta_keywords" => [
+            'label' => 'Meta KeyWords',
+            'placeholder' => 'Enter Meta KeyWords',
         ],
+        "slug" => [
+            'label' => 'Url Title',
+        ],
+        "save" => " Save",
     ];
