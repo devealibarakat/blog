@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('locale');
             $table->string('title');
             $table->string('slug');
-            $table->string('short_descreption');
-            $table->text('descreption');
+            $table->string('short_description');
+            $table->text('description');
             $table->json('meta_keywords');
             $table->unique(['locale', 'article_id']);
             $table->foreign('article_id')->references('id')->on('articles')->onDelete('cascade');
